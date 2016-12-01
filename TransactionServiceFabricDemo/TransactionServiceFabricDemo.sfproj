@@ -29,6 +29,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SuidService\SuidService.csproj" />
     <ProjectReference Include="..\TransactionWeb\TransactionWeb.xproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
