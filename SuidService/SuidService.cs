@@ -49,14 +49,16 @@ namespace SuidService
         public async Task<int> GetLatestSuid()
         {
             int latestSuid;
+            var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>("suidDictionary");
 
             using (var tx = this.StateManager.CreateTransaction())
             {
-                var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>("suidDictionary");
                 await suidDictionary.AddOrUpdateAsync(tx, "LatestSuid", 1, (key, value) => ++value);
 
                 var result = await suidDictionary.TryGetValueAsync(tx, "LatestSuid");
                 latestSuid = result.Value;
+
+                await tx.CommitAsync();
             }
             return latestSuid;
         }
