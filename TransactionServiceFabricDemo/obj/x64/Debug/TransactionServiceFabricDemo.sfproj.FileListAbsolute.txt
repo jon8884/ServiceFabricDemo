@@ -1,1 +1,2 @@
 C:\Users\acnjdp\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\obj\x64\Debug\TransactionServiceFabricDemo.sfprojResolveAssemblyReference.cache
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\obj\x64\Debug\TransactionServiceFabricDemo.sfprojResolveAssemblyReference.cache

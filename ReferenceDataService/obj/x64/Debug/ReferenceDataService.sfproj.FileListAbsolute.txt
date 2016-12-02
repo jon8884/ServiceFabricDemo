@@ -1,0 +1,1 @@
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ReferenceDataService\obj\x64\Debug\ReferenceDataService.sfprojResolveAssemblyReference.cache

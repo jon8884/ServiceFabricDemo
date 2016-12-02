@@ -2786,7 +2786,7 @@
       ]
     },
     "Microsoft.ServiceFabric/5.3.311": {
-      "sha512": "C9BguBr2ITYOPzZEdTdC34wSWtM8KL2zXTpnUeiGxlLDtnBHV9uaaDiiVXZTOqCdjMRmo7SH8dDKA75OACbWjw==",
+      "sha512": "1+3qlN1NcJ5ySCxtk1judEnRtLr/U9UB4vtVlhxNdsBmN8rtFEblgp7KSt8eRoQM/0NZMvEytkhk2sNs5OTnJg==",
       "type": "package",
       "path": "Microsoft.ServiceFabric/5.3.311",
       "files": [
@@ -2800,7 +2800,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Data/2.3.311": {
-      "sha512": "EQZgwKnTZ0KGMm58kK/itga/IM2lydwNObn+raDYBQ4uTH0j3lZjHNI+tuCVLp6PM35WL9Nj7KBddJGGA/4KWw==",
+      "sha512": "vQWxPCZlvDyDKokMEizOoRyMsVCSg3RDiLqbxMq2igyxgHL8XU6UdiooaHpu0YgCt2BaNedryxZl2K603bMAdQ==",
       "type": "package",
       "path": "Microsoft.ServiceFabric.Data/2.3.311",
       "files": [
@@ -2813,7 +2813,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Services/2.3.311": {
-      "sha512": "6mhqCknXPJlJFu0WhII9kh4BPA28FFzdQXwSXwocgsNKIUF/sdlGNCm64zYK6rY4X4KRs9XHqbmsGB1P9dpIHA==",
+      "sha512": "Xhfh5Blm+jHpBJFuXf9MblS9cNVPFzgB3tjRbqT3ReKcQgojYkk9YVJcqAdpBDCjIfzn7VHStI6TH9SirJkG+A==",
       "type": "package",
       "path": "Microsoft.ServiceFabric.Services/2.3.311",
       "files": [
