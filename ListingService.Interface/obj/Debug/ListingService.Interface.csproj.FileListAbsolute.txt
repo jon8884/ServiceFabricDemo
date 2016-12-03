@@ -1,0 +1,5 @@
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\bin\Debug\ListingService.Interface.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\bin\Debug\ListingService.Interface.pdb
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\obj\Debug\ListingService.Interface.csprojResolveAssemblyReference.cache
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\obj\Debug\ListingService.Interface.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\obj\Debug\ListingService.Interface.pdb

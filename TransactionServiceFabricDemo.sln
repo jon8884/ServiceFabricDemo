@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionService.Interfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListingService.Interface", "ListingService.Interface\ListingService.Interface.csproj", "{2A6148B3-4420-4E2C-BDA7-17A3DE756429}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionService.Domain", "TransactionService.Domain\TransactionService.Domain.csproj", "{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,14 @@ Global
 		{2A6148B3-4420-4E2C-BDA7-17A3DE756429}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A6148B3-4420-4E2C-BDA7-17A3DE756429}.Release|x64.ActiveCfg = Release|Any CPU
 		{2A6148B3-4420-4E2C-BDA7-17A3DE756429}.Release|x64.Build.0 = Release|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Debug|x64.Build.0 = Debug|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Release|x64.ActiveCfg = Release|Any CPU
+		{649C4CBF-271C-4F39-9888-FDDB76C7FF5A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

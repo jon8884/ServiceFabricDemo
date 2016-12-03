@@ -1,0 +1,5 @@
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\bin\Debug\TransactionService.Interface.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\bin\Debug\TransactionService.Interface.pdb
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\obj\Debug\TransactionService.Interface.csprojResolveAssemblyReference.cache
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\obj\Debug\TransactionService.Interface.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\obj\Debug\TransactionService.Interface.pdb

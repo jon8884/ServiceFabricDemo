@@ -84,6 +84,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransactionService.Domain\TransactionService.Domain.csproj">
+      <Project>{649c4cbf-271c-4f39-9888-fddb76c7ff5a}</Project>
+      <Name>TransactionService.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransactionService.Interface\TransactionService.Interface.csproj">
+      <Project>{641e12d8-296f-4e70-8e51-398a13999eee}</Project>
+      <Name>TransactionService.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

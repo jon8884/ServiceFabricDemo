@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TransactionService.Interface
+namespace TransactionService.Domain
 {
-    public class Class1
+    public enum TransactionType
     {
+        Buy,
+        Sell
     }
 }

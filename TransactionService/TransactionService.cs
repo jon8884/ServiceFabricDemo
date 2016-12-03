@@ -7,14 +7,21 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+using TransactionService.Interface;
+using TransactionService.Domain;
+using Microsoft.ServiceFabric.Data;
 
 namespace TransactionService
 {
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class TransactionService : StatefulService
+    internal sealed class TransactionService : StatefulService, ITransactionService
     {
+        private const string TransactionDictionaryName = "transactionDictionary";
+        private const string SuidDictionaryName = "suidDictionary";
+
         public TransactionService(StatefulServiceContext context)
             : base(context)
         { }
@@ -28,7 +35,7 @@ namespace TransactionService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            return new ServiceReplicaListener[0];
+            return new[] { new ServiceReplicaListener(context => this.CreateServiceRemotingListener(context)) };
         }
 
         /// <summary>
@@ -38,31 +45,63 @@ namespace TransactionService
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
+            var transactionDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<int, Domain.Transaction>>(TransactionDictionaryName);
+            var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>(SuidDictionaryName);
+        }
 
-            var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+        public async Task<List<Domain.Transaction>> GetAllSavedTransactionsAsync()
+        {
+            List<Domain.Transaction> results = new List<Domain.Transaction>();
+            var transactionDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<int, Domain.Transaction>>(TransactionDictionaryName);
+            var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>(SuidDictionaryName);
 
-            while (true)
+            using (ITransaction tx = this.StateManager.CreateTransaction())
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                using (var tx = this.StateManager.CreateTransaction())
+                var result = await suidDictionary.TryGetValueAsync(tx, "LatestSuid");
+                if(result.HasValue)
                 {
-                    var result = await myDictionary.TryGetValueAsync(tx, "Counter");
+                    for (int i = 1; i <= result.Value; i++)
+                    {
+                        var transaction = await transactionDictionary.TryGetValueAsync(tx, i);
+                        if(transaction.HasValue)
+                        {
+                            results.Add(transaction.Value);
+                        }
+                    }
 
-                    ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
-                        result.HasValue ? result.Value.ToString() : "Value does not exist.");
-
-                    await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
-
-                    // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-                    // discarded, and nothing is saved to the secondary replicas.
-                    await tx.CommitAsync();
+                    ServiceEventSource.Current.ServiceMessage(
+                        this.Context,
+                        "Getting all the saved transactions. Found {0} transactions to return.", results.Count);
                 }
-
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                else
+                {
+                    ServiceEventSource.Current.ServiceMessage(
+                        this.Context,
+                        "There are no saved transactions to return");
+                }              
             }
+            return results;
+        }
+
+        public async Task SetTransactionAsync(Domain.Transaction transaction)
+        {
+            var transactionDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<int, Domain.Transaction>>(TransactionDictionaryName);
+            var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>(SuidDictionaryName);
+
+            using (ITransaction tx = this.StateManager.CreateTransaction())
+            {
+                await suidDictionary.AddOrUpdateAsync(tx, "LatestSuid", 1, (key, value) => ++value);
+
+                var result = await suidDictionary.TryGetValueAsync(tx, "LatestSuid");
+
+                transaction.Suid = result.Value;
+                var result2 = await transactionDictionary.TryAddAsync(tx, result.Value, transaction);
+
+                await tx.CommitAsync();
+            }
+
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Request completed to add transaction for Listing: {0}, TransactionType: {1}, Price: {2}, ShareAmount {3}. Suid assigned: {4}", 
+                transaction.Listing, transaction.TransactionType, transaction.Price, transaction.ShareAmount, transaction.Suid);
         }
     }
 }
