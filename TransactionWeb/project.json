@@ -27,7 +27,16 @@
   },
 
   "frameworks": {
-    "net452": { }
+    "net452": {
+      "dependencies": {
+        "TransactionService.Domain": {
+          "target": "project"
+        },
+        "TransactionService.Interface": {
+          "target": "project"
+        }
+      }
+    }
   },
 
   "buildOptions": {

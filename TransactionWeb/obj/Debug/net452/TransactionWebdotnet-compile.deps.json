@@ -17,6 +17,8 @@
     ".NETFramework,Version=v4.5.2": {
       "TransactionWeb/1.0.0": {
         "dependencies": {
+          "TransactionService.Domain": "1.0.0",
+          "TransactionService.Interface": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.AspNetCore.Routing": "1.0.1",
@@ -994,6 +996,19 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "TransactionService.Domain/1.0.0": {
+        "compile": {
+          "bin/x64/Debug/TransactionService.Domain.dll": {}
+        }
+      },
+      "TransactionService.Interface/1.0.0": {
+        "dependencies": {
+          "TransactionService.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/x64/Debug/TransactionService.Interface.dll": {}
+        }
+      },
       "mscorlib/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.5.2/mscorlib.dll": {}
@@ -1073,6 +1088,8 @@
     ".NETFramework,Version=v4.5.2/": {
       "TransactionWeb/1.0.0": {
         "dependencies": {
+          "TransactionService.Domain": "1.0.0",
+          "TransactionService.Interface": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
           "Microsoft.AspNetCore.Routing": "1.0.1",
@@ -1966,6 +1983,27 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "TransactionService.Domain/1.0.0": {
+        "runtime": {
+          "bin/x64/Debug/TransactionService.Domain.dll": {}
+        }
+      },
+      "TransactionService.Interface/1.0.0": {
+        "dependencies": {
+          "TransactionService.Domain": "1.0.0"
+        },
+        "runtime": {
+          "../packages/Microsoft.ServiceFabric.5.3.311/lib/net45/Microsoft.ServiceFabric.Internal.Strings.dll": {},
+          "../packages/Microsoft.ServiceFabric.5.3.311/lib/net45/Microsoft.ServiceFabric.Internal.dll": {},
+          "../packages/Microsoft.ServiceFabric.5.3.311/lib/net45/System.Fabric.Strings.dll": {},
+          "../packages/Microsoft.ServiceFabric.5.3.311/lib/net45/System.Fabric.dll": {},
+          "../packages/Microsoft.ServiceFabric.Data.2.3.311/lib/net45/Microsoft.ServiceFabric.Data.Interfaces.dll": {},
+          "../packages/Microsoft.ServiceFabric.Data.2.3.311/lib/net45/Microsoft.ServiceFabric.Data.dll": {},
+          "../packages/Microsoft.ServiceFabric.Services.2.3.311/lib/net45/Microsoft.ServiceFabric.Services.dll": {},
+          "../packages/Microsoft.ServiceFabric.Services.2.3.311/lib/net45/ServiceFabricServiceModel.dll": {},
+          "bin/x64/Debug/TransactionService.Interface.dll": {}
+        }
+      },
       "mscorlib/4.0.0.0": {},
       "System/4.0.0.0": {},
       "System.Core/4.0.0.0": {},
@@ -2528,6 +2566,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-pH4FZDsZQ/WmgJtN4LWYmRdJAEeVkyriSwrv2Teoe5FOU0Yxlb6II6GL8dBPOfRmutHGATduj3ooMt7dJ2+i+w=="
+    },
+    "TransactionService.Domain/1.0.0": {
+      "type": "msbuildproject",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TransactionService.Interface/1.0.0": {
+      "type": "msbuildproject",
+      "serviceable": false,
+      "sha512": ""
     },
     "mscorlib/4.0.0.0": {
       "type": "referenceassembly",

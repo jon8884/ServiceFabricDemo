@@ -1767,6 +1767,15 @@
         "runtime": {
           "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll": {}
         }
+      },
+      "TransactionService.Domain/1.0.0": {
+        "type": "project"
+      },
+      "TransactionService.Interface/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "TransactionService.Domain": "1.0.0"
+        }
       }
     }
   },
@@ -4681,6 +4690,14 @@
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml"
       ]
+    },
+    "TransactionService.Domain/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../TransactionService.Domain/TransactionService.Domain.csproj"
+    },
+    "TransactionService.Interface/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../TransactionService.Interface/TransactionService.Interface.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4702,7 +4719,10 @@
       "Microsoft.ServiceFabric.Services >= 2.3.311",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0"
     ],
-    ".NETFramework,Version=v4.5.2": []
+    ".NETFramework,Version=v4.5.2": [
+      "TransactionService.Domain",
+      "TransactionService.Interface"
+    ]
   },
   "tools": {
     ".NETCoreApp,Version=v1.0": {

@@ -1,0 +1,5 @@
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\bin\Debug\TransactionService.Domain.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\bin\Debug\TransactionService.Domain.pdb
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\obj\Debug\TransactionService.Domain.csprojResolveAssemblyReference.cache
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\obj\Debug\TransactionService.Domain.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\obj\Debug\TransactionService.Domain.pdb

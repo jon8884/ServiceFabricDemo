@@ -1,1 +1,15 @@
 #:C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\TransactionService.Domain.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\TransactionService.Interface.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\TransactionService.Interface.csproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\TransactionService.Domain.csproj
+#:C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\TransactionServiceFabricDemo.sfproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\TransactionServiceFabricDemo.sfproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\TransactionServiceFabricDemo.sfproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\TransactionService.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\TransactionServiceFabricDemo.sfproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\SuidService\SuidService.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionServiceFabricDemo\TransactionServiceFabricDemo.sfproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService\ListingService.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\TransactionService.Domain.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionWeb\TransactionWeb.xproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\TransactionService.Interface.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\TransactionService.Interface.csproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\TransactionService.Domain.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\TransactionService.csproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Domain\TransactionService.Domain.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\TransactionService.csproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService.Interface\TransactionService.Interface.csproj
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService\ListingService.csproj|C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\ListingService.Interface\ListingService.Interface.csproj

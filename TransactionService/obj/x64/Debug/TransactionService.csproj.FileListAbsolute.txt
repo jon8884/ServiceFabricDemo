@@ -9,6 +9,10 @@ C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\ServiceFabricServiceModel.dll
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\System.Fabric.dll
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\System.Fabric.Strings.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\TransactionService.Domain.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\TransactionService.Interface.dll
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\TransactionService.Domain.pdb
+C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\TransactionService.Interface.pdb
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\Microsoft.ServiceFabric.Data.xml
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\Microsoft.ServiceFabric.Data.Interfaces.xml
 C:\Users\brad.j.greathouse\Source\Repos\ServiceFabricDemo\TransactionService\bin\x64\Debug\Microsoft.ServiceFabric.Services.xml

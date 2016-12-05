@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TransactionService.Interface;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
+using Microsoft.ServiceFabric.Services.Client;
+using TransactionService.Domain;
 
 namespace TransactionWeb.Controllers
 {
@@ -13,18 +17,13 @@ namespace TransactionWeb.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<List<Transaction>> getTransactions()
         {
-            ViewData["Message"] = "Your application description page.";
+            ServiceUriBuilder builder = new ServiceUriBuilder("TransactionService");
+            ITransactionService transactionService = ServiceProxy.Create<ITransactionService>(builder.ToUri(), new ServicePartitionKey(0));
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var transactions = await transactionService.GetAllSavedTransactionsAsync();
+            return transactions;
         }
 
         public IActionResult Error()

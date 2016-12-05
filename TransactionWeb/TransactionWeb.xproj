@@ -19,5 +19,9 @@
     <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransactionService.Domain\TransactionService.Domain.csproj" />
+    <ProjectReference Include="..\TransactionService.Interface\TransactionService.Interface.csproj" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
