@@ -1768,6 +1768,9 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "ListingService.Interface/1.0.0": {
+        "type": "project"
+      },
       "TransactionService.Domain/1.0.0": {
         "type": "project"
       },
@@ -2795,7 +2798,7 @@
       ]
     },
     "Microsoft.ServiceFabric/5.3.311": {
-      "sha512": "1+3qlN1NcJ5ySCxtk1judEnRtLr/U9UB4vtVlhxNdsBmN8rtFEblgp7KSt8eRoQM/0NZMvEytkhk2sNs5OTnJg==",
+      "sha512": "C9BguBr2ITYOPzZEdTdC34wSWtM8KL2zXTpnUeiGxlLDtnBHV9uaaDiiVXZTOqCdjMRmo7SH8dDKA75OACbWjw==",
       "type": "package",
       "path": "Microsoft.ServiceFabric/5.3.311",
       "files": [
@@ -2809,7 +2812,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Data/2.3.311": {
-      "sha512": "vQWxPCZlvDyDKokMEizOoRyMsVCSg3RDiLqbxMq2igyxgHL8XU6UdiooaHpu0YgCt2BaNedryxZl2K603bMAdQ==",
+      "sha512": "EQZgwKnTZ0KGMm58kK/itga/IM2lydwNObn+raDYBQ4uTH0j3lZjHNI+tuCVLp6PM35WL9Nj7KBddJGGA/4KWw==",
       "type": "package",
       "path": "Microsoft.ServiceFabric.Data/2.3.311",
       "files": [
@@ -2822,7 +2825,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Services/2.3.311": {
-      "sha512": "Xhfh5Blm+jHpBJFuXf9MblS9cNVPFzgB3tjRbqT3ReKcQgojYkk9YVJcqAdpBDCjIfzn7VHStI6TH9SirJkG+A==",
+      "sha512": "6mhqCknXPJlJFu0WhII9kh4BPA28FFzdQXwSXwocgsNKIUF/sdlGNCm64zYK6rY4X4KRs9XHqbmsGB1P9dpIHA==",
       "type": "package",
       "path": "Microsoft.ServiceFabric.Services/2.3.311",
       "files": [
@@ -4691,6 +4694,10 @@
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml"
       ]
     },
+    "ListingService.Interface/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../ListingService.Interface/ListingService.Interface.csproj"
+    },
     "TransactionService.Domain/1.0.0": {
       "type": "project",
       "msbuildProject": "../TransactionService.Domain/TransactionService.Domain.csproj"
@@ -4720,6 +4727,7 @@
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0"
     ],
     ".NETFramework,Version=v4.5.2": [
+      "ListingService.Interface",
       "TransactionService.Domain",
       "TransactionService.Interface"
     ]

@@ -56,6 +56,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         RefreshTransactions();
+        LoadListings();
     });
 
     function SaveTransaction() {
@@ -88,6 +89,26 @@
                     $('#transactionsTable tbody').append("<tr><td>" + item["suid"] + "</td><td>"
                         + (item["transactionType"] === 0 ? "Buy" : "Sell")
                         + "</td><td>" + item["listing"] + "</td><td>" + item["price"] + "</td><td>" + item["shareAmount"] + "</td></tr>");
+                });
+            },
+            type: 'GET'
+        });
+    }
+
+    function LoadListings() {
+        $.ajax({
+            url: '/Home/GetListings',
+            data: { format: 'json' },
+            contentType: "application/json",
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (data) {
+                $.each(data, function (index, item) {
+                    $('#listing').append($('<option>', { 
+                        value: item,
+                        text : item
+                    }));
                 });
             },
             type: 'GET'

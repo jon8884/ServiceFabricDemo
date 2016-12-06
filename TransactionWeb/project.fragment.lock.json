@@ -1,6 +1,24 @@
 {
   "version": 2,
   "exports": {
+    "ListingService.Interface/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5.2",
+      "compile": {
+        "bin/x64/Debug/ListingService.Interface.dll": {}
+      },
+      "runtime": {
+        "../packages/Microsoft.ServiceFabric.Services.2.3.311/lib/net45/Microsoft.ServiceFabric.Services.dll": {},
+        "bin/x64/Debug/ListingService.Interface.dll": {}
+      },
+      "contentFiles": {
+        "bin/x64/Debug/ListingService.Interface.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
     "TransactionService.Domain/1.0.0": {
       "type": "project",
       "framework": ".NETFramework,Version=v4.5.2",

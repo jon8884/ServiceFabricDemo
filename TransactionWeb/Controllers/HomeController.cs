@@ -7,6 +7,7 @@ using TransactionService.Interface;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Client;
 using TransactionService.Domain;
+using ListingService.Interface;
 
 namespace TransactionWeb.Controllers
 {
@@ -46,6 +47,17 @@ namespace TransactionWeb.Controllers
 
             await transactionService.SetTransactionAsync(transaction);
         }
+
+        [HttpGet]
+        public async Task<JsonResult> GetListings()
+        {
+            ServiceUriBuilder builder = new ServiceUriBuilder("ListingService");
+            IListingService listingService = ServiceProxy.Create<IListingService>(builder.ToUri(), new ServicePartitionKey(0));
+
+            var listings = await listingService.GetAllListingsAsync();
+            return Json(listings);
+        }
+
 
         public IActionResult Error()
         {

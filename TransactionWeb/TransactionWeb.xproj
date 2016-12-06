@@ -20,6 +20,7 @@
     <DnxInvisibleContent Include=".bowerrc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ListingService.Interface\ListingService.Interface.csproj" />
     <ProjectReference Include="..\TransactionService.Domain\TransactionService.Domain.csproj" />
     <ProjectReference Include="..\TransactionService.Interface\TransactionService.Interface.csproj" />
   </ItemGroup>
