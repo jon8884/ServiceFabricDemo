@@ -17,13 +17,14 @@ namespace TransactionWeb.Controllers
             return View();
         }
 
-        public async Task<List<Transaction>> getTransactions()
+        [HttpGet]
+        public async Task<JsonResult> GetTransactions()
         {
             ServiceUriBuilder builder = new ServiceUriBuilder("TransactionService");
             ITransactionService transactionService = ServiceProxy.Create<ITransactionService>(builder.ToUri(), new ServicePartitionKey(0));
 
             var transactions = await transactionService.GetAllSavedTransactionsAsync();
-            return transactions;
+            return Json(transactions);
         }
 
         public IActionResult Error()

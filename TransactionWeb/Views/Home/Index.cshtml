@@ -1,30 +1,78 @@
 ﻿@{
+    Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Create New Transactions</h1>
+<h2>Create New Transactions</h2>
 
 <div>
-    Transaction Type:
-    <select id="transactionType" style="margin-bottom: 15px;">
-        <item>Buy</item>
-        <item>Sell</item>
-    </select>
-
-    Listing:
-    <select id="listing" style="margin-bottom: 15px;"></select>
-    
-    Price:
-    <input type="number" id="price" style="margin-bottom: 15px;" />
-
-    Share Amount:
-    <input type="number" id="shareAmount" style="margin-bottom: 15px;" />
-
+    <table class="table" style="margin-bottom: 10px;">
+        <tr>
+            <td>Transaction Type:</td>
+            <td>
+                <select id="transactionType">
+                    <option>Buy</option>
+                    <option>Sell</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Listing:</td>
+            <td><select id="listing"></select></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="number" id="price" /></td>
+        </tr>
+        <tr>
+            <td>Share Amount:</td>
+            <td><input type="number" id="shareAmount" /></td>
+        </tr>
+    </table>
     <button type="button" id="submitTransaction">Create</button>
+    <div id="info"></div>
 </div>
 
+<hr />
 <h2>Saved Transactions</h2>
 
-<table id="transactionsTable">
+<table id="transactionsTable" class="table">
+    <thead>
+        <tr>
+            <th>Suid</th>
+            <th>Transaction Type</th>
+            <th>Listing</th>
+            <th>Price</th>
+            <th>Share Amount</th>
+        </tr>
+    </thead>
+    <tbody>
 
+    </tbody>
 </table>
+
+@section scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Home/GetTransactions',
+            data: {
+                format: 'json'
+            },
+            //dataType: 'jsonp',
+            contentType: "application/json",
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (data) {
+                $.each(data, function (index, item) {
+                    $('#transactionsTable tbody').append("<tr><td>" + item["suid"] + "</td><td>"
+                        + (item["transactionType"] === 0 ? "Buy" : "Sell")
+                        + "</td><td>" + item["listing"] + "</td><td>" + item["price"] + "</td><td>" + item["shareAmount"] + "</td></tr>");
+                });
+            },
+            type: 'GET'
+        });
+    });
+</script>
+}
