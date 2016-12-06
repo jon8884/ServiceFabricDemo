@@ -7,9 +7,6 @@
     <Parameter Name="TransactionService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="TransactionService_PartitionCount" DefaultValue="1" />
     <Parameter Name="TransactionService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="SuidService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="SuidService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="SuidService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="TransactionWeb_InstanceCount" DefaultValue="-1" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
@@ -21,10 +18,6 @@
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="TransactionServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-  </ServiceManifestImport>
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="SuidServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
   </ServiceManifestImport>
   <ServiceManifestImport>
@@ -45,11 +38,6 @@
     <Service Name="TransactionService">
       <StatefulService ServiceTypeName="TransactionServiceType" TargetReplicaSetSize="[TransactionService_TargetReplicaSetSize]" MinReplicaSetSize="[TransactionService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[TransactionService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
-    </Service>
-    <Service Name="SuidService">
-      <StatefulService ServiceTypeName="SuidServiceType" TargetReplicaSetSize="[SuidService_TargetReplicaSetSize]" MinReplicaSetSize="[SuidService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[SuidService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
     <Service Name="TransactionWeb">
