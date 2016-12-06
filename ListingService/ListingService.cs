@@ -49,7 +49,7 @@ namespace ListingService
                 var listing1 = await listingDictionary.TryGetValueAsync(tx, 1);
 
                 ServiceEventSource.Current.ServiceMessage(this.Context, "RunAsync is providing the current value for listingDictionary id 1: {0}",
-                    listing1.HasValue ? listing1.Value.ToString() : "Value does not exist yet.");
+                    listing1.HasValue ? listing1.Value : "Value does not exist yet.");
 
                 if (!listing1.HasValue)
                 {
@@ -59,7 +59,7 @@ namespace ListingService
                 var listing2 = await listingDictionary.TryGetValueAsync(tx, 2);
 
                 ServiceEventSource.Current.ServiceMessage(this.Context, "RunAsync is providing the current value for listingDictionary id 2: {0}",
-                    listing2.HasValue ? listing2.Value.ToString() : "Value does not exist yet.");
+                    listing2.HasValue ? listing2.Value : "Value does not exist yet.");
 
                 if (!listing2.HasValue)
                 {
@@ -69,7 +69,7 @@ namespace ListingService
                 var listing3 = await listingDictionary.TryGetValueAsync(tx, 3);
 
                 ServiceEventSource.Current.ServiceMessage(this.Context, "RunAsync is providing the current value for listingDictionary id 3: {0}",
-                    listing3.HasValue ? listing3.Value.ToString() : "Value does not exist yet.");
+                    listing3.HasValue ? listing3.Value : "Value does not exist yet.");
 
                 if (!listing3.HasValue)
                 {
@@ -79,7 +79,7 @@ namespace ListingService
                 var listing4 = await listingDictionary.TryGetValueAsync(tx, 4);
 
                 ServiceEventSource.Current.ServiceMessage(this.Context, "RunAsync is providing the current value for listingDictionary id 4: {0}",
-                    listing4.HasValue ? listing4.Value.ToString() : "Value does not exist yet.");
+                    listing4.HasValue ? listing4.Value : "Value does not exist yet.");
 
                 if (!listing4.HasValue)
                 {
@@ -97,11 +97,11 @@ namespace ListingService
             List<string> listings = new List<string>();
             var listingDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<int, string>>(ListingDictionaryName);
 
-            using (ITransaction tx = this.StateManager.CreateTransaction())
+            using (var tx = this.StateManager.CreateTransaction())
             {
                 var listingCount = await listingDictionary.GetCountAsync(tx);
 
-                for(var i = 0; i < listingCount; i++)
+                for(var i = 1; i <= listingCount; i++)
                 { 
                     var listing = await listingDictionary.TryGetValueAsync(tx, i);
                     if (listing.HasValue)
