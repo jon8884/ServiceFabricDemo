@@ -29,12 +29,13 @@
             <td><input type="number" id="shareAmount" /></td>
         </tr>
     </table>
-    <button type="button" id="submitTransaction">Create</button>
+    <button type="button" id="submitTransaction" onclick="SaveTransaction()">Create</button>
     <div id="info"></div>
 </div>
 
 <hr />
 <h2>Saved Transactions</h2>
+<button type="button" id="refresh" onclick="RefreshTransactions()">Refresh</button>
 
 <table id="transactionsTable" class="table">
     <thead>
@@ -54,17 +55,35 @@
 @section scripts {
 <script type="text/javascript">
     $(document).ready(function () {
+        RefreshTransactions();
+    });
+
+    function SaveTransaction() {
+        var postObj = { transactionType: $('#transactionType').val(), listing: $('#listing').val(), price: $('#price').val(), shareAmount: $('#shareAmount').val() };
+        $.ajax({
+            type: "POST",
+            url: "/Home/SaveTransaction",
+            data: postObj,
+            datatype: "html",
+            success: function (data) {
+                $('#transactionType').val("");
+                $('#listing').val("");
+                $('#price').val("");
+                $('#shareAmount').val("");
+            }
+        });
+    }
+
+    function RefreshTransactions() {
         $.ajax({
             url: '/Home/GetTransactions',
-            data: {
-                format: 'json'
-            },
-            //dataType: 'jsonp',
+            data: { format: 'json' },
             contentType: "application/json",
             error: function (e) {
                 console.log(e);
             },
             success: function (data) {
+                $('#transactionsTable tbody').empty();
                 $.each(data, function (index, item) {
                     $('#transactionsTable tbody').append("<tr><td>" + item["suid"] + "</td><td>"
                         + (item["transactionType"] === 0 ? "Buy" : "Sell")
@@ -73,6 +92,6 @@
             },
             type: 'GET'
         });
-    });
+    }
 </script>
 }

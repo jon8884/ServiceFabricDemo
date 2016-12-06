@@ -27,6 +27,26 @@ namespace TransactionWeb.Controllers
             return Json(transactions);
         }
 
+        [HttpPost]
+        public async void SaveTransaction(string listing, string transactionType, decimal price, int shareAmount)
+        {
+            ServiceUriBuilder builder = new ServiceUriBuilder("TransactionService");
+            ITransactionService transactionService = ServiceProxy.Create<ITransactionService>(builder.ToUri(), new ServicePartitionKey(0));
+
+            TransactionType transactionTypeEnum;
+            Enum.TryParse(transactionType, out transactionTypeEnum);
+
+            var transaction = new Transaction()
+            {
+                Listing = listing,
+                TransactionType = transactionTypeEnum,
+                Price = price,
+                ShareAmount = shareAmount
+            };
+
+            await transactionService.SetTransactionAsync(transaction);
+        }
+
         public IActionResult Error()
         {
             return View();
