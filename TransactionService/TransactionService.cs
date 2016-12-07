@@ -45,37 +45,7 @@ namespace TransactionService
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            var transactionDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<int, Domain.Transaction>>(TransactionDictionaryName);
-            var suidDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, int>>(SuidDictionaryName);
-
-            using (var tx = this.StateManager.CreateTransaction())
-            {
-                await suidDictionary.AddOrUpdateAsync(tx, "LatestSuid", 1, (key, value) => ++value);
-                var latestSuid = await suidDictionary.TryGetValueAsync(tx, "LatestSuid");
-
-                var transaction1 = await transactionDictionary.TryGetValueAsync(tx, 1);
-
-                ServiceEventSource.Current.ServiceMessage(this.Context, "RunAsync is providing the current value for transactionDictionary id {0}: {1}",
-                    latestSuid, transaction1.HasValue ? transaction1.Value.ToString() : "Value does not exist yet.");
-
-                if (!transaction1.HasValue)
-                {
-                    var tempTransaction = new Domain.Transaction()
-                    {
-                        Listing = "Google",
-                        Price = 500,
-                        ShareAmount = 20,
-                        TransactionType = TransactionType.Buy,
-                        Suid = latestSuid.Value
-                    };
-
-                    await transactionDictionary.AddOrUpdateAsync(tx, latestSuid.Value, tempTransaction, (key, value) => value);
-                }
-                
-                // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-                // discarded, and nothing is saved to the secondary replicas.
-                await tx.CommitAsync();
-            }
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
         }
 
         public async Task<List<Domain.Transaction>> GetAllSavedTransactionsAsync()
